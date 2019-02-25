@@ -28,10 +28,26 @@ jobs:
       TAG_NAME: clang-latest
       IMAGE_PATH: images/compile_clang_latest
     <<: *build_steps
+  build_gcc_latest:
+    executor: docker-publisher
+    environment:
+      TAG_NAME: gcc-latest
+      IMAGE_PATH: images/compile_gcc_latest
+    <<: *build_steps
+  build_gcc_lowest:
+    executor: docker-publisher
+    environment:
+      TAG_NAME: gcc-lowest
+      IMAGE_PATH: images/compile_gcc_lowest
+    <<: *build_steps
 
 workflows:
   version: 2
   build-images:
     jobs:
       - build_clang_latest:
+          context: fso_docker_images
+      - build_gcc_latest:
+          context: fso_docker_images
+      - build_gcc_lowest:
           context: fso_docker_images
