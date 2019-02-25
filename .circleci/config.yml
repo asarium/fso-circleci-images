@@ -42,13 +42,13 @@ jobs:
     executor: docker-publisher
     environment:
       TAG_NAME: clang-latest
-    <<: build_steps
+    <<: *build_steps
 
   publish_clang_latest:
     executor: docker-publisher
     environment:
       TAG_NAME: clang-latest
-    <<: publish_steps
+    <<: *publish_steps
 
 workflows:
   version: 2
