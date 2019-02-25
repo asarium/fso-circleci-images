@@ -14,7 +14,7 @@ references:
       - setup_remote_docker
       - run:
           name: Build Docker image
-          command: docker build -t $IMAGE_NAME:clang-latest $IMAGE_PATH
+          command: docker build -t $IMAGE_NAME:$TAG_NAME $IMAGE_PATH
       - run:
           name: Publish Docker Image to Docker Hub
           command: |
