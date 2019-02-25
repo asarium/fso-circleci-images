@@ -18,7 +18,7 @@ references:
       - run:
           name: Publish Docker Image to Docker Hub
           command: |
-            echo "$DOCKERHUB_PASSWORD" | docker login --username "$DOCKERHUB_USERNAME" --password-stdin
+            echo "$DOCKERHUB_PASSWORD" | docker login --username="$DOCKERHUB_USERNAME" --password-stdin
             docker push $IMAGE_NAME:$TAG_NAME
 
 jobs:
@@ -33,4 +33,5 @@ workflows:
   version: 2
   build-images:
     jobs:
-      - build_clang_latest
+      - build_clang_latest:
+        context: fso_docker_images
