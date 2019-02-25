@@ -34,4 +34,4 @@ workflows:
   build-images:
     jobs:
       - build_clang_latest:
-        context: fso_docker_images
+          context: fso_docker_images
