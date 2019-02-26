@@ -53,6 +53,8 @@ workflows:
     jobs:
       - build_clang_latest:
           context: fso_docker_images
+      - build_clang_lowest:
+          context: fso_docker_images
       - build_gcc_latest:
           context: fso_docker_images
       - build_gcc_lowest:
